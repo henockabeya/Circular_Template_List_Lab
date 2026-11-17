@@ -1,0 +1,24 @@
+//
+// Created by Henoc Kabeya on 11/16/26.
+//
+#include <sstream>
+#include "Song.h"
+
+// Public method to retrieve the artist
+std::string Song::getArtist() const {
+    return artist;
+}
+
+// Override toString() from the Media base class.
+std::string Song::toString() const {
+    std::stringstream ss;
+    ss << "Song: " << title
+       << " | Artist: " << artist
+       << " | Duration: " << durationSeconds / 60 << "m " << durationSeconds % 60 << "s";
+    return ss.str();
+}
+
+// Override play() to provide Song-specific behavior.
+void Song::play() const {
+    std::cout << "🎵 Now playing: " << title << " by " << artist << " 🎵" << std::endl;
+}
